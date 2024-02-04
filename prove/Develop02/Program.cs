@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-
 class JournalEntry
 {
     public string Prompt { get; }
@@ -20,19 +16,19 @@ class Journal
 {
     private List<JournalEntry> entries = new List<JournalEntry>();
 
-    public void AddEntry(string prompt, string response, string date)
+    public void addEntry(string prompt, string response, string date)
     {
         entries.Add(new JournalEntry(prompt, response, date));
     }
 
-    public void DisplayEntries()
+    public void displayEntries()
     {
         Console.WriteLine("Journal Entries:");
         foreach (var entry in entries)
             Console.WriteLine($"Date: {entry.Date}\nPrompt: {entry.Prompt}Response: {entry.Response}\n");
     }
 
-    public void SaveToFile(string fileName)
+    public void saveToFile(string fileName)
     {
         using (StreamWriter writer = new StreamWriter(fileName))
             foreach (var entry in entries)
@@ -41,7 +37,7 @@ class Journal
         Console.WriteLine($"Journal was saved to {fileName}.");
     }
 
-    public void LoadFromFile(string fileName)
+    public void loadFromFile(string fileName)
     {
         entries.Clear();
         try
@@ -81,20 +77,20 @@ class Program
             switch (choice)
             {
                 case "1":
-                    WriteNewEntry(journal);
+                    writeNewEntry(journal);
                     break;
                 case "2":
-                    journal.DisplayEntries();
+                    journal.displayEntries();
                     break;
                 case "3":
                     Console.Write("Please enter the filename: ");
                     string saveFileName = Console.ReadLine();
-                    journal.SaveToFile(saveFileName);
+                    journal.saveToFile(saveFileName);
                     break;
                 case "4":
                     Console.Write("Enter the filename you'd like to load: ");
                     string loadFileName = Console.ReadLine();
-                    journal.LoadFromFile(loadFileName);
+                    journal.loadFromFile(loadFileName);
                     break;
                 case "5":
                     Environment.Exit(0);
@@ -106,7 +102,7 @@ class Program
         }
     }
 
-    static void WriteNewEntry(Journal journal)
+    static void writeNewEntry(Journal journal)
     {
         List<string> prompts = new List<string>
         {
@@ -127,7 +123,7 @@ class Program
 
         string currentDate = DateTime.Now.ToString("M/d/yyyy");
 
-        journal.AddEntry(randomPrompt, response, currentDate);
+        journal.addEntry(randomPrompt, response, currentDate);
         Console.WriteLine("Entry was saved successfully!");
     }
 }
