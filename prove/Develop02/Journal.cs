@@ -11,7 +11,7 @@ class Journal
     {
         Console.WriteLine("Journal Entries:");
         foreach (var entry in entries)
-            Console.WriteLine($"Date: {entry.Date}\nPrompt: {entry.Prompt}Response: {entry.Response}\n");
+            Console.WriteLine($"Date: {entry.Date}Prompt: {entry.Prompt}Response: {entry.Response}\n");
     }
 
     public void saveToFile(string fileName)
