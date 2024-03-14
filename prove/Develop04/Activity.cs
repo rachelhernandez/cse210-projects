@@ -85,13 +85,6 @@ public class Activity
         Console.WriteLine("Your session is about to start");
         GenerateSpinner(5);
     }
-    public DateTime GetFutureTime(int duration)
-    {   
-        DateTime futureTime = new DateTime();
-        futureTime = DateTime.Now.AddSeconds(duration);
-
-        return futureTime;
-    }
 
     public DateTime GetCurrentTime()
     {
@@ -100,3 +93,11 @@ public class Activity
         return currentTime;
     }
 }
+
+public DateTime GetFutureTime(int duration)
+    {   
+        DateTime futureTime = new DateTime();
+        futureTime = DateTime.Now.AddSeconds(duration);
+
+        return futureTime;
+    }
