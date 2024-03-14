@@ -49,13 +49,4 @@ public class ReflectingActivity : Activity
         DateTime futureTime = GetFutureTime(GetDuration());
         DateTime currentTime = GetCurrentTime();
 
-        while (currentTime <= futureTime)
-        {
-            string question = GenerateQuestion();
-            Console.Write(question + " ");
-            GenerateSpinner(15);
-            Console.WriteLine();
-            currentTime = DateTime.Now;
-        }
     }
-}
