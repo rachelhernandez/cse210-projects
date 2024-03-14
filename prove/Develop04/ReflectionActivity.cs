@@ -50,3 +50,4 @@ public class ReflectingActivity : Activity
         DateTime currentTime = GetCurrentTime();
 
     }
+}
