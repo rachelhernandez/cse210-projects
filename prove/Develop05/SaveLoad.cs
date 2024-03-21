@@ -19,8 +19,6 @@ public class SaveLoadManager
                     string description = goal.Description;
                     int points = goal.Points;
                     bool isCompleted = goal.IsCompleted;
-//                    int bonusP = goal.bonusPoints;
-//                    int TargetC = goal.targetCount;
 
                     writer.WriteLine($"{goalType}|||{description}|||{points}|||{isCompleted}");
                 }
